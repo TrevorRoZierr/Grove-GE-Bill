@@ -2,7 +2,6 @@ import App from "@/components/App";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { StoreProvider } from "@/redux/StoreProvider";
-import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +17,6 @@ export default function RootLayout({ children }) {
         <StoreProvider>
           <App>{children}</App>
         </StoreProvider>
-        <Toaster />
       </body>
     </html>
   );
