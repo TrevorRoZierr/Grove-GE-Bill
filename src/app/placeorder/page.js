@@ -1,10 +1,11 @@
-'use client'
-import CheckoutWizard from '@/components/CheckoutWizard'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+"use client";
+import CheckoutWizard from "@/components/CheckoutWizard";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { toast } from "@/components/ui/use-toast";
 
 export default function PlaceOrderScreen() {
   const {
@@ -16,14 +17,18 @@ export default function PlaceOrderScreen() {
     shippingAddress,
     paymentMethod,
     loading,
-  } = useSelector((state) => state.cart)
-  const router = useRouter()
+  } = useSelector((state) => state.cart);
+  const router = useRouter();
 
   useEffect(() => {
     if (!paymentMethod) {
-      router.push('/payment')
+      router.push("/payment");
     }
-  }, [paymentMethod, router])
+  }, [paymentMethod, router]);
+
+  const timeFunc = () => {
+    router.push("https://grove-good-eats.vercel.app/reservations/accessed");
+  };
 
   return (
     <div>
@@ -41,8 +46,8 @@ export default function PlaceOrderScreen() {
             <div className="card  p-5">
               <h2 className="mb-2 text-lg">Shipping Address</h2>
               <div>
-                {shippingAddress.fullName}, {shippingAddress.address},{' '}
-                {shippingAddress.city}, {shippingAddress.postalCode},{' '}
+                {shippingAddress.fullName}, {shippingAddress.address},{" "}
+                {shippingAddress.city}, {shippingAddress.postalCode},{" "}
                 {shippingAddress.country}
               </div>
               <div>
@@ -85,8 +90,8 @@ export default function PlaceOrderScreen() {
                             width={50}
                             height={50}
                             style={{
-                              maxWidth: '100%',
-                              height: 'auto',
+                              maxWidth: "100%",
+                              height: "auto",
                             }}
                             className="p-1"
                           ></Image>
@@ -94,9 +99,9 @@ export default function PlaceOrderScreen() {
                         </Link>
                       </td>
                       <td className=" p-5 text-right">{item.qty}</td>
-                      <td className="p-5 text-right">${item.price}</td>
+                      <td className="p-5 text-right">₹ {item.price}</td>
                       <td className="p-5 text-right">
-                        ${item.qty * item.price}
+                        ₹ {item.qty * item.price}
                       </td>
                     </tr>
                   ))}
@@ -116,30 +121,35 @@ export default function PlaceOrderScreen() {
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Items</div>
-                    <div>${itemsPrice}</div>
+                    <div>₹ {itemsPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Tax</div>
-                    <div>${taxPrice}</div>
+                    <div>₹ {taxPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Shipping</div>
-                    <div>${shippingPrice}</div>
+                    <div>₹ {shippingPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Total</div>
-                    <div>${totalPrice}</div>
+                    <div>₹ {totalPrice}</div>
                   </div>
                 </li>
                 <li>
                   <button
-                    onClick={() => alert('Not implemented')}
+                    onClick={() => {
+                      toast({
+                        description: "Your food is waiting for you. Please wait we are redirecting you :)",
+                      });
+                      setTimeout(timeFunc, 3000);
+                    }}
                     className="primary-button w-full"
                   >
                     Place Order
@@ -151,5 +161,5 @@ export default function PlaceOrderScreen() {
         </div>
       )}
     </div>
-  )
+  );
 }

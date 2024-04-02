@@ -37,14 +37,14 @@ export default function CartSidebar() {
       ) : (
         <>
           <div className="p-2 flex flex-col items-center border-b border-b-gary-600">
-            <div>subtotal</div>
-            <div className="font-bold text-orange-700">${itemsPrice}</div>
+            <div><h1>Total Bill:</h1></div>
+            <div className="font-bold text-black my-4">₹ {itemsPrice}</div>
             <div>
               <Link
                 href="/cart"
-                className="w-full text-center p-1  rounded-2xl border-2"
+                className="w-full text-center p-2 rounded-2xl border-2 font-semibold hover:bg-green-300 border-black"
               >
-                Go to cart
+                Order
               </Link>
             </div>
             {cartItems.map((item) => (
