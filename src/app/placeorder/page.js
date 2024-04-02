@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { toast } from "@/components/ui/use-toast";
 
 export default function PlaceOrderScreen() {
   const {
@@ -145,7 +144,7 @@ export default function PlaceOrderScreen() {
                 <li>
                   <button
                     onClick={() => {
-                      alert("Thanks for ordering. You will be redirected...")
+                      alert("Thanks for ordering. You will be redirected...");
                       setTimeout(timeFunc, 3000);
                     }}
                     className="primary-button w-full"
