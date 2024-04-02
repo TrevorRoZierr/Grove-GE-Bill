@@ -145,9 +145,7 @@ export default function PlaceOrderScreen() {
                 <li>
                   <button
                     onClick={() => {
-                      toast({
-                        description: "Your food is waiting for you. Please wait we are redirecting you :)",
-                      });
+                      alert("Thanks for ordering. You will be redirected...")
                       setTimeout(timeFunc, 3000);
                     }}
                     className="primary-button w-full"
