@@ -10,7 +10,6 @@ export default function PlaceOrderScreen() {
   const {
     cartItems,
     itemsPrice,
-    shippingPrice,
     totalPrice,
     taxPrice,
     shippingAddress,
