@@ -48,7 +48,7 @@ export default function ShippingAddressPage() {
             id="fullName"
             autoFocus
             {...register("fullName", {
-              required: "Please enter full name",
+              required: "Please enter full name.",
             })}
           />
           {errors.fullName && (
@@ -61,7 +61,7 @@ export default function ShippingAddressPage() {
             className="w-full"
             id="address"
             {...register("address", {
-              required: "Please enter email",
+              required: "Please enter email.",
               minLength: {
                 value: 3,
                 message: "Address is more than 2 chars",
@@ -79,7 +79,7 @@ export default function ShippingAddressPage() {
             className="w-full"
             id="city"
             {...register("city", {
-              required: "Please enter area",
+              required: "Let us know if you reserved the table or not.",
             })}
           />
           {errors.city && (
