@@ -37,17 +37,15 @@ export default function PlaceOrderScreen() {
         <div>Loading</div>
       ) : cartItems.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/">Go shopping</Link>
+          Cart is empty. <Link href="/">Order food</Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
           <div className="overflow-x-auto md:col-span-3">
             <div className="card  p-5">
-              <h2 className="mb-2 text-lg">Shipping Address</h2>
+              <h2 className="mb-2 text-lg">Your Details</h2>
               <div>
-                {shippingAddress.fullName}, {shippingAddress.address},{" "}
-                {shippingAddress.city}, {shippingAddress.postalCode},{" "}
-                {shippingAddress.country}
+                {shippingAddress.fullName}, {shippingAddress.address}
               </div>
               <div>
                 <Link className="default-button inline-block" href="/shipping">
@@ -144,7 +142,7 @@ export default function PlaceOrderScreen() {
                 <li>
                   <button
                     onClick={() => {
-                      alert("Thanks for ordering. You will be redirected...");
+                      alert("Thanks for ordering. Click Ok and you will be redirected back soon...");
                       setTimeout(timeFunc, 3000);
                     }}
                     className="primary-button w-full"
