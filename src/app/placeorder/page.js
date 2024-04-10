@@ -45,7 +45,9 @@ export default function PlaceOrderScreen() {
             <div className="card  p-5">
               <h2 className="mb-2 text-lg">Your Details</h2>
               <div>
-                {shippingAddress.fullName}, {shippingAddress.address}
+              <h1>Name:{" "}{shippingAddress.fullName}</h1>
+                <br></br>
+                <h1>Email:{" "}{shippingAddress.address}</h1>
               </div>
               <div>
                 <Link className="default-button inline-block" href="/shipping">
@@ -125,12 +127,6 @@ export default function PlaceOrderScreen() {
                   <div className="mb-2 flex justify-between">
                     <div>Tax</div>
                     <div>₹ {taxPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Shipping</div>
-                    <div>₹ {shippingPrice}</div>
                   </div>
                 </li>
                 <li>
